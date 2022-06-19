@@ -8,10 +8,10 @@ function Header(props) {
     <Fragment>
       <header className={s.header}>
         <h1>React shop</h1>
-        <HeaderCartButton />
+        <HeaderCartButton onClick={props.onShowCart}/>
       </header>
       <div className={s['main-image']}>
-        <img src={mealsImage}/>
+        <img src={mealsImage} alt='A table full of delicious food!'/>
       </div>
     </Fragment>
   )
