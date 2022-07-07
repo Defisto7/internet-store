@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import s from './Modal.module.css';
-import ReactDOM from 'react-dom'
+import { createPortal } from 'react-dom'
 
 const Backdrop = (props) => {
   return <div className={s.backdrop} onClick={props.onHideCart}/>
@@ -17,8 +17,8 @@ const portalElement = document.getElementById('overlays')
 function Modal(props) {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<Backdrop onHideCart={props.onHideCart}/>, portalElement)}
-      {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay>, portalElement)}
+      {createPortal(<Backdrop onHideCart={props.onHideCart}/>, portalElement)}
+      {createPortal(<ModalOverlay>{props.children}</ModalOverlay>, portalElement)}
     </Fragment>
   )
 }
